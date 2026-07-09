@@ -34,7 +34,7 @@ class Product:
         if quantity > self.quantity:
             raise ValueError("Not enough stock available.")
         self.quantity -= quantity
-        return f"Purchased {quantity} of {self.name}. Remaining stock: {self.quantity}"
+        return self.price * quantity
     
     
 
