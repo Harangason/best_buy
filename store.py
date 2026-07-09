@@ -88,7 +88,7 @@ class Store:
 
                 total_cost = self.order(shopping_list)
                 print("********")
-                print(f"Order made! Total payment: ${total_cost}")
+                print(f"Order made! Total payment: ${total_cost:.0f}")
             elif choice == "4":
                 break
 

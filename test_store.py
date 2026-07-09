@@ -29,7 +29,7 @@ class StoreOrderTests(unittest.TestCase):
         ])
 
         output = io.StringIO()
-        with patch("builtins.input", side_effect=["1", "4"]):
+        with patch("builtins.input", side_effect=["1", "2", "4"]):
             with redirect_stdout(output):
                 store.run_cli()
 
