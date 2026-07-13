@@ -5,35 +5,47 @@ class Product:
         self.quantity = quantity
         self.active = active
 
+    def __str__(self):
+        return (
+            f"Product Name: {self.name}, Price: ${self.price:.2f}, "
+            f"Quantity: {self.quantity}, Active: {self.active}"
+        )
+
     def display_info(self):
-        return f"Product Name: {self.name}, Price: ${self.price:.2f}, Quantity: {self.quantity}, Active: {self.active}"
-    
-    def quantity(self) -> int: 
+        return str(self)
+
+    def show(self):
+        return str(self)
+
+    def get_quantity(self) -> int:
         return self.quantity
-    
+
     def set_quantity(self, quantity: int):
-        if quantity <= 0:
-            raise ValueError("Quantity cannot be zero or negative.")
+        if quantity < 0:
+            raise ValueError("Quantity cannot be negative.")
         self.quantity = quantity
-        
+        self.active = quantity > 0
+
+    def activate(self):
+        self.active = True
+
     def is_active(self) -> bool:
         return self.active
-    
+
     def set_active(self, active: bool):
         self.active = active
-        
+
     def deactivate(self):
-        self.active = False 
-        
-    def show(self):
-        return f"Product: {self.name}, Price: ${self.price:.2f}, Quantity: {self.quantity}, Active: {self.active}"
-    
+        self.active = False
+
     def buy(self, quantity: int) -> float:
         if quantity <= 0:
             raise ValueError("Quantity must be greater than zero.")
+        if not self.active:
+            raise ValueError(f"Product '{self.name}' is not active.")
         if quantity > self.quantity:
             raise ValueError("Not enough stock available.")
-        self.quantity -= quantity
+        self.set_quantity(self.quantity - quantity)
         return self.price * quantity
     
     

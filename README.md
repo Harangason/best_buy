@@ -13,7 +13,8 @@ A small Python store simulator with a `Product` model, a `Store` class, and a te
 ## Project Structure
 
 - `products.py` - Product model and inventory-related behavior
-- `store.py` - Store logic and interactive CLI
+- `store.py` - Store business logic (no user interaction)
+- `main.py` - Interactive CLI (menu, listing, ordering flow)
 - `test_store.py` - Unit tests for the store workflow
 - `_static/` - Static HTML/CSS assets used by the project
 
@@ -22,7 +23,7 @@ A small Python store simulator with a `Product` model, a `Store` class, and a te
 Start the CLI with:
 
 ```bash
-python store.py
+python main.py
 ```
 
 ## Run Tests
